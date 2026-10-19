@@ -17,3 +17,19 @@ test_that("ordinary values are unchanged", {
 # You do not need any new testing syntax; expect_equal() is enough to start.
 
 # Add your tests here.
+
+# test behavior for limits parameters (lower and upper)
+# verify that numbers < lower are indeed set for NA, same for upper
+test_that("upper and lower parameters work correctly",{
+ 
+    # test vals of lower 
+    expect_equal(
+        clean_numeric(values = c(-10,-5, 0, 1, 2), lower = 0),
+                                c(NA, NA, 0, 1, 2))
+    
+    # test vals of upper 
+    expect_equal(
+        clean_numeric(values = c(-100, -50, 0, 10, 10^30), upper = 0),
+        c(-100, -50, 0, 10, 10^30))
+
+})
