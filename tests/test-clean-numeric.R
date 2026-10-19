@@ -41,5 +41,5 @@ test_that("fucntion that returns NA on empty input", {
     #     is.na(clean.numeric(values = c())), TRUE)
     
     expect_equal(
-        len(clean_numeric(values = c())), 0)
+        length(clean_numeric(values = c())), 0)
 })
