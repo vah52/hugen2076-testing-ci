@@ -30,14 +30,16 @@ test_that("upper and lower parameters work correctly",{
     # test vals of upper 
     expect_equal(
         clean_numeric(values = c(-100, -50, 0, 10, 10^30), upper = Inf),
-        c(-100, -50, 0, 10, 10^30))
+                                c(-100, -50, 0, 10, 10^30))
 
 })
 
 # test behavior on empty input vector 
 # wrong test for demo purposes-- should fail 
 test_that("fucntion that returns NA on empty input", {
+    # expect_equal(
+    #     is.na(clean.numeric(values = c())), TRUE)
+    
     expect_equal(
-        is.na(clean.numeric(values = c())), TRUE
-    )
+        clean_numeric(values=c()), integer = 0)
 })
