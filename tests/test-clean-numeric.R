@@ -24,12 +24,20 @@ test_that("upper and lower parameters work correctly",{
  
     # test vals of lower 
     expect_equal(
-        clean_numeric(values = c(-10,-5, 0, 1, 2), lower = 0),
+        clean_numeric(values = c(-10, -5, 0, 1, 2), lower = 0),
                                 c(NA, NA, 0, 1, 2))
     
     # test vals of upper 
     expect_equal(
-        clean_numeric(values = c(-100, -50, 0, 10, 10^30), upper = 0),
+        clean_numeric(values = c(-100, -50, 0, 10, 10^30), upper = Inf),
         c(-100, -50, 0, 10, 10^30))
 
+})
+
+# test behavior on empty input vector 
+# wrong test for demo purposes-- should fail 
+test_that("fucntion that returns NA on empty input", {
+    expect_equal(
+        is.na(clean.numeric(values = c())), TRUE
+    )
 })
